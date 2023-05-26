@@ -1,4 +1,4 @@
-module github.com/goexl/prometheus
+module github.com/goexl/promethy
 
 go 1.19
 
