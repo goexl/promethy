@@ -28,6 +28,15 @@ func (b *builder) Label(key string, value string) (builder *builder) {
 	return
 }
 
+func (b *builder) Labels(labels map[string]string) (builder *builder) {
+	for key, value := range labels {
+		b.params.labels[key] = value
+	}
+	builder = b
+
+	return
+}
+
 func (b *builder) Build() *prom {
 	return newProm(b.params)
 }
