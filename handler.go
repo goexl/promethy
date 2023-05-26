@@ -21,9 +21,13 @@ func newHandler(params *params) *Handler {
 
 func (h *Handler) Handle() (handler http.Handler, err error) {
 	register := prometheus.WrapRegistererWith(h.params.labels, h.params.registry)
-	register.MustRegister(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}))
-	register.MustRegister(collectors.NewGoCollector())
-	handler = promhttp.HandlerFor(h.params.registry, promhttp.HandlerOpts{Registry: register})
+	if pe := register.Register(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{})); nil != pe {
+		err = pe
+	} else if ge := register.Register(collectors.NewGoCollector()); nil != ge {
+		err = ge
+	} else {
+		handler = promhttp.HandlerFor(h.params.registry, promhttp.HandlerOpts{Registry: register})
+	}
 
 	return
 }
