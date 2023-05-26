@@ -20,7 +20,11 @@ func newHandler(params *params) *Handler {
 }
 
 func (h *Handler) Handle() (handler http.Handler, err error) {
-	register := prometheus.WrapRegistererWith(h.params.labels, h.params.registry)
+	labels := make(map[string]string)
+	for key, value := range h.params.labels {
+		labels[key] = h.params.parser.Parse(value)
+	}
+	register := prometheus.WrapRegistererWith(labels, h.params.registry)
 	if pe := register.Register(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{})); nil != pe {
 		err = pe
 	} else if ge := register.Register(collectors.NewGoCollector()); nil != ge {

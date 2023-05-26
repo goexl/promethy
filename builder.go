@@ -2,6 +2,7 @@ package promethy
 
 import (
 	"github.com/goexl/simaqian"
+	"github.com/goexl/valuer"
 )
 
 type builder struct {
@@ -16,6 +17,13 @@ func newBuilder() *builder {
 
 func (b *builder) Logger(logger simaqian.Logger) (builder *builder) {
 	b.params.logger = logger
+	builder = b
+
+	return
+}
+
+func (b *builder) Parser(parser *valuer.Parser) (builder *builder) {
+	b.params.parser = parser
 	builder = b
 
 	return
