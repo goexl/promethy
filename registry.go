@@ -1,4 +1,4 @@
-package prometheus
+package promethy
 
 import (
 	"github.com/prometheus/client_golang/prometheus"

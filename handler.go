@@ -1,4 +1,4 @@
-package prometheus
+package promethy
 
 import (
 	"net/http"
