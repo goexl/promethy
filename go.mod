@@ -3,9 +3,8 @@ module github.com/goexl/promethy
 go 1.19
 
 require (
-	github.com/goexl/env v0.0.2
 	github.com/goexl/simaqian v0.2.5
-	github.com/goexl/valuer v0.0.1
+	github.com/goexl/valuer v0.0.2
 	github.com/prometheus/client_golang v1.15.1
 )
 
@@ -15,6 +14,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/drone/envsubst v1.0.3 // indirect
 	github.com/go-resty/resty/v2 v2.7.0 // indirect
+	github.com/goexl/env v0.0.2 // indirect
 	github.com/goexl/exc v0.0.5 // indirect
 	github.com/goexl/gox v0.3.6 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
