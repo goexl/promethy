@@ -22,7 +22,7 @@ func newHandler(params *params) *Handler {
 func (h *Handler) Handle() (handler http.Handler, err error) {
 	labels := make(map[string]string)
 	for key, value := range h.params.labels {
-		labels[key] = h.params.parser.Parse(value)
+		labels[h.params.parser.Parse(key)] = h.params.parser.Parse(value)
 	}
 	register := prometheus.WrapRegistererWith(labels, h.params.registry)
 	if pe := register.Register(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{})); nil != pe {
