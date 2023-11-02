@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/goexl/log v0.0.5
-	github.com/goexl/valuer v0.0.3
+	github.com/goexl/valuer v0.0.4
 	github.com/prometheus/client_golang v1.15.1
 )
 
