@@ -6,7 +6,7 @@ toolchain go1.23.3
 require (
 	github.com/goexl/log v0.0.7
 	github.com/goexl/valuer v0.0.5
-	github.com/prometheus/client_golang v1.21.0
+	github.com/prometheus/client_golang v1.21.1
 )
 
 require (
