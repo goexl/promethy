@@ -1,10 +1,8 @@
 module github.com/goexl/promethy
 
 go 1.21
-toolchain go1.23.3
-
 require (
-	github.com/goexl/log v0.0.7
+	github.com/goexl/log v0.0.9
 	github.com/goexl/valuer v0.0.5
 	github.com/prometheus/client_golang v1.21.1
 )
@@ -17,7 +15,7 @@ require (
 	github.com/go-resty/resty/v2 v2.15.3 // indirect
 	github.com/goexl/env v0.0.2 // indirect
 	github.com/goexl/exc v0.0.5 // indirect
-	github.com/goexl/gox v1.9.0 // indirect
+	github.com/goexl/gox v1.9.2 // indirect
 	github.com/goexl/http v0.2.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/klauspost/compress v1.17.11 // indirect
