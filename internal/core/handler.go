@@ -23,7 +23,11 @@ func NewHandler(params *param.Promethy) *Handler {
 func (h *Handler) Handle() (handler http.Handler, err error) {
 	labels := make(map[string]string)
 	for key, value := range h.params.Labels {
-		labels[h.params.Parser.Parse(key)] = h.params.Parser.Parse(value)
+		realKey := h.params.Parser.Parse(key)
+		realValue := h.params.Parser.Parse(value)
+		if "" != realKey && "" != realValue { // 只有当键值对有正确的值才进行注入
+			labels[realKey] = realValue
+		}
 	}
 	register := prometheus.WrapRegistererWith(labels, h.params.Registry)
 	if re := register.Register(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{})); nil != re {
