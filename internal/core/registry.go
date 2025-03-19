@@ -16,9 +16,10 @@ func NewRegistry(params *param.Promethy) *Registry {
 	}
 }
 
-func (r *Registry) Register(collectors ...prometheus.Collector) (err error) {
-	for _, collector := range collectors {
-		err = r.params.Registry.Register(collector)
+func (r *Registry) Register(required prometheus.Collector, optionals ...prometheus.Collector) (err error) {
+	register := prometheus.WrapRegistererWith(r.params.Parse(), r.params.Registry)
+	for _, collector := range append([]prometheus.Collector{required}, optionals...) {
+		err = register.Register(collector)
 		if nil != err {
 			break
 		}

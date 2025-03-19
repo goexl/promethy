@@ -27,3 +27,16 @@ func NewParams() *Promethy {
 		},
 	}
 }
+
+func (p *Promethy) Parse() (labels map[string]string) {
+	labels = make(map[string]string, len(p.Labels))
+	for key, value := range p.Labels {
+		realKey := p.Parser.Parse(key)
+		realValue := p.Parser.Parse(value)
+		if "" != realKey && "" != realValue { // 只有当键值对有正确的值才进行注入
+			labels[realKey] = realValue
+		}
+	}
+
+	return
+}
