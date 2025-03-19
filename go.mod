@@ -1,6 +1,9 @@
 module github.com/goexl/promethy
 
-go 1.21
+go 1.24
+
+toolchain go1.24.1
+
 require (
 	github.com/goexl/log v0.0.9
 	github.com/goexl/valuer v0.0.5
