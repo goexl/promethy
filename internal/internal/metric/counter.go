@@ -1,6 +1,7 @@
 package metric
 
 import (
+	"github.com/goexl/promethy"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
@@ -18,4 +19,8 @@ func NewCounter(counter *prometheus.CounterVec, labels ...string) *Counter {
 
 func (c *Counter) Inc() {
 	c.counter.WithLabelValues(c.labels...).Inc()
+}
+
+func (c *Counter) Add(value float64) {
+	c.counter.WithLabelValues(c.labels...).Add(value)
 }

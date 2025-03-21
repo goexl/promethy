@@ -20,6 +20,10 @@ func (g *Gauge) Inc() {
 	g.gauge.WithLabelValues(g.labels...).Inc()
 }
 
+func (g *Gauge) Add(value float64) {
+	g.gauge.WithLabelValues(g.labels...).Add(value)
+}
+
 func (g *Gauge) Dec() {
 	g.gauge.WithLabelValues(g.labels...).Dec()
 }
