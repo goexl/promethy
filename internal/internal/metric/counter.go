@@ -1,7 +1,6 @@
 package metric
 
 import (
-	"github.com/goexl/promethy"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
