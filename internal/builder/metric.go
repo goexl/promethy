@@ -16,8 +16,16 @@ func NewMetric() *Metric {
 	}
 }
 
-func (m *Metric) Label(label string) (metric *Metric) {
-	m.params.Labels = append(m.params.Labels, label)
+func (m *Metric) Label(required string, optionals ...string) (metric *Metric) {
+	m.params.Labels = append(m.params.Labels, required)
+	m.params.Labels = append(m.params.Labels, optionals...)
+	metric = m
+
+	return
+}
+
+func (m *Metric) Labels(labels []string) (metric *Metric) {
+	m.params.Labels = append(m.params.Labels, labels...)
 	metric = m
 
 	return
@@ -29,4 +37,8 @@ func (m *Metric) Gauge(gauge *prometheus.GaugeVec) *metric.Gauge {
 
 func (m *Metric) Counter(counter *prometheus.CounterVec) *metric.Counter {
 	return metric.NewCounter(counter, m.params.Labels...)
+}
+
+func (m *Metric) Histogram(histogram *prometheus.HistogramVec) *metric.Histogram {
+	return metric.NewHistogram(histogram, m.params.Labels...)
 }
