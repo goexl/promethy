@@ -6,7 +6,7 @@ require (
 	github.com/goexl/env v0.0.2
 	github.com/goexl/log v0.0.9
 	github.com/goexl/valuer v0.0.6
-	github.com/prometheus/client_golang v1.21.1
+	github.com/prometheus/client_golang v1.22.0
 )
 
 require (
@@ -19,7 +19,6 @@ require (
 	github.com/goexl/gox v1.9.2 // indirect
 	github.com/goexl/http v0.2.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
 	github.com/prometheus/common v0.63.0 // indirect
