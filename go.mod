@@ -4,7 +4,7 @@ go 1.24
 
 require (
 	github.com/goexl/env v0.0.2
-	github.com/goexl/log v0.0.9
+	github.com/goexl/log v0.1.0
 	github.com/goexl/valuer v0.0.6
 	github.com/prometheus/client_golang v1.22.0
 )
